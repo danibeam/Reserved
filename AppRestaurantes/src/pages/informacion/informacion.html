@@ -1,0 +1,48 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>informacion</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="see_informacion()">
+      <ion-item>
+        <ion-label>Día</ion-label>
+        <ion-datetime [ngModelOptions]="{standalone: true}" displayFormat="DD MMM YYYY" [(ngModel)]="startDate"></ion-datetime>
+      </ion-item>
+      <br>
+      <button ion-button id="buscar" type="submit" block>Buscar</button>
+    </form>
+
+    <ion-item *ngFor="let item of restaurantService.infocomida">
+      <h2>Turno comidas</h2>
+      <ion-col>
+        Pedidos totales: {{item.reservas}}
+        <br>
+        Clientes totales: {{item.comensales}}
+        <br>
+        Ingresos totales: {{item.cuentas}}
+      </ion-col>
+    </ion-item>
+
+    <ion-item *ngFor="let item of restaurantService.infocena">
+      <h2>Turno cenas</h2>
+        <ion-col>
+            Pedidos totales: {{item.reservas}}
+            <br>
+            Clientes totales: {{item.comensales}}
+            <br>
+            Ingresos totales: {{item.cuentas}}
+          </ion-col>
+      </ion-item>
+
+</ion-content>

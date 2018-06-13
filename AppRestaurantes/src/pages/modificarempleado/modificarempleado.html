@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Modificar Empleado</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="modify_employee()">
+      <br>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="employee.password" name="password" ></ion-input>
+      </ion-item>
+      <br>
+        <ion-item>
+          <ion-label floating>Confirmar Password</ion-label>
+          <ion-input type="password" [(ngModel)]="pass.confirmarpassword" name="password2" required></ion-input>
+        </ion-item>
+      <button ion-button [disabled]="employee.password.length<3 || pass.confirmarpassword.length<3" type="submit" block>Cambiar</button>
+    </form>
+
+
+</ion-content>

@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Modificar Reserva</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)= "modificar_reserva()">
+    <ion-item>
+      <ion-label>Día</ion-label>
+      <ion-datetime [ngModelOptions]="{standalone: true}" displayFormat="DD MMM YYYY" [(ngModel)]="startDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hora</ion-label>
+      <ion-select [(ngModel)]="reserva.hora" name="reserva.hora" [ngModelOptions]="{standalone: true}">
+        <ion-option value="13:00">13:00</ion-option>
+        <ion-option value="13:30">13:30</ion-option>
+        <ion-option value="14:00">14:00</ion-option>
+        <ion-option value="14:30">14:30</ion-option>
+        <ion-option value="15:00">15:00</ion-option>
+        <ion-option value="21:00">21:00</ion-option>
+        <ion-option value="21:30">21:30</ion-option>
+        <ion-option value="22:00">22:00</ion-option>
+        <ion-option value="22:30">22:30</ion-option>
+        <ion-option value="23:00">23:00</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Comensales</ion-label>
+      <ion-input type="number" [(ngModel)]="reserva.comensales" name="comensales" required></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Modificar reserva</button>
+  </form>
+</ion-content>

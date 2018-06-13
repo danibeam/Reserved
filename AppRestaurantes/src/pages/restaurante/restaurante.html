@@ -1,0 +1,82 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Restaurante</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+  <ion-grid>
+      <ion-item *ngFor="let item of restaurantService.inforestaurant">
+        <ion-thumbnail tappable (click)="openImage()">
+          <img  [src]="urlfotoprincipal">
+        </ion-thumbnail>
+        <ion-col>
+            <h2>{{item.nombre}}</h2>
+            <br>
+          <p>
+            <b>Descripcion:</b> {{item.descripcion}}.
+          </p>
+          <p>
+            <b>Direccion:</b> {{item.direccion}}.
+          </p>
+          <p>
+            <b>Telefono:</b> {{item.telefono}}.
+          </p>
+        </ion-col>
+      </ion-item>
+          <div class="botonesrestaurante">
+            <div id="container1"(click)="mis_reservas()">
+                <ion-icon name="paper"></ion-icon>
+                <br>
+                Reservas
+            </div>
+            <div id="container1" (click)="mis_comentarios()">
+                <ion-icon name="ios-chatbubbles"></ion-icon>
+                <br>
+              comentarios
+            </div>
+            <div id="container1" (click)="mi_informacion()">
+                <ion-icon name="information-circle"></ion-icon>
+                <br>
+              Informacion
+            </div>
+            <div id="container1" (click)="mi_carta()">
+                <ion-icon name="list-box"></ion-icon>
+                <br>
+              Carta
+            </div>
+            <div id="container1" (click)="mis_empleados()">
+                <ion-icon name="contacts"></ion-icon>
+                <br>
+              Empleados
+            </div>
+            <div id="container1" (click)="modificar_restaurante()">
+                <ion-icon name="build"></ion-icon>
+                <br>
+              Modificar
+            </div>
+            <div id="container1" (click)="presentActionSheet()">
+                <ion-icon name="image"></ion-icon>
+                <br>
+              Foto
+            </div>        
+             <div id="container1" (click)="mas_fotos()">
+                <ion-icon name="images"></ion-icon>
+                <br>
+                Mas fotos
+            </div>
+          </div>
+    
+    </ion-grid>
+
+</ion-content>
+

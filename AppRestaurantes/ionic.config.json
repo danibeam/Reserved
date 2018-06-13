@@ -1,0 +1,14 @@
+{
+  "name": "AppRestaurantes",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://reserved.ovh/apireserved"
+    }
+  ]
+}

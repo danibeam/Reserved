@@ -1,0 +1,21 @@
+page-pedidos-antiguos {
+    .item-md{
+        background-color:transparent;
+    }
+    h4{
+        color:#76323F;
+        //text-align:center;
+        font-size: 1.1em!important;
+    }
+    ion-label{
+        white-space: normal
+    }
+    #precio{
+        float: right!important;
+    }
+    h5{
+        float: right!important;
+        margin-left:100%!important;
+        font-size: 1em!important;
+    }
+}

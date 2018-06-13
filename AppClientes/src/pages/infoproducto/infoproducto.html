@@ -1,0 +1,57 @@
+<ion-content>
+  <div class="image-modal transparent">
+    <ion-item class="close-fake" no-lines (click)="close()">
+      <ion-icon name="close"></ion-icon>
+    </ion-item>
+    <ion-thumbnail>
+        <img  src="api/{{restaurantService.masinfoproductoactual[0].restauranteP}}/{{restaurantService.masinfoproductoactual[0].nombre}}/imageproducto">
+      </ion-thumbnail>
+    <h2><b>{{restaurantService.masinfoproductoactual[0].nombre}}</b></h2>
+    
+    <h3>{{restaurantService.masinfoproductoactual[0].informacion}}</h3>
+    <h3>Precio: {{restaurantService.masinfoproductoactual[0].precio}} €</h3>
+    <h4>Alergenos:</h4>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].gluten == true">
+      <ion-icon [name]="icongluten"></ion-icon> Gluten 
+    </ion-list> 
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].crustaceos  == true">
+      <ion-icon  [name]="iconcrustaceos"></ion-icon> Crustaceos
+    </ion-list> 
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].huevos  == true">
+        <ion-icon [name]="iconhuevos"></ion-icon> Huevo
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].pescado  == true">
+      <ion-icon [name]="iconpescado"></ion-icon> Pescado
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].cacahuetes  == true">
+      <ion-icon [name]="iconcacahuetes"></ion-icon> Cacahuetes  
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].soja  == true">
+      <ion-icon [name]="iconsoja"></ion-icon> Soja
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].lacteos  == true">
+        <ion-icon [name]="iconlacteos"></ion-icon> Lacteos
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].frutos_cascara  == true">
+       <ion-icon [name]="iconcascara"></ion-icon> Cascaras de frutos
+      </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].apio  == true">
+      <ion-icon [name]="iconapio"></ion-icon> Apio
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].mostaza  == true">
+        <ion-icon [name]="iconmostaza"></ion-icon> Mostaza
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].sesamo  == true">
+        <ion-icon [name]="iconsesamo"></ion-icon> Sesamo
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].dioxido_azufre  == true">
+        <ion-icon [name]="icondioxido"></ion-icon> Dioxido de azufre
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].moluscos  == true">
+        <ion-icon [name]="iconmoluscos"></ion-icon> Moluscos
+    </ion-list>
+    <ion-list *ngIf="restaurantService.masinfoproductoactual[0].altramuces  == true">
+      <ion-icon [name]="iconaltramuces"></ion-icon> Altramuces
+    </ion-list> 
+  </div>
+</ion-content>

@@ -1,0 +1,43 @@
+page-mipedido {
+    .item-md{
+        background-color:transparent;
+    }
+    .button-default-md{
+        background-color:#76323F;
+        margin-top: 2em!important;
+    }
+    .button-outline-md{
+        color:#76323F;
+        border-color:#76323F;
+    }
+    .item-button{
+      
+        height: 30px!important;
+        width: 40px!important;
+        color: #76323F;
+        background-color:transparent; 
+    }
+    .icon-md{
+        font-size: 2em;
+    }
+    .col{
+        white-space: normal;
+    }
+    h2{
+        font-size: 3.0rem;
+        color:#76323F;
+    }
+    h3{
+        color:#76323F;
+        //text-align:center;
+        font-size: 1.1em!important;
+    }
+    #precio{
+        float: right;
+    }
+    h5{
+        float: right!important;
+        margin-left:100%!important;
+        font-size: 1em!important;
+    }
+}

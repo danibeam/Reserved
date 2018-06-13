@@ -1,0 +1,47 @@
+page-camarero {
+
+    .scroll-content {
+        padding: 0px!important;
+        margin-top: 6em!important;
+        border-top: 0px!important;
+   }
+
+    h2{
+        font-size: 3.0rem;
+        padding: 1em 0em;
+        text-decoration: underline;
+    }
+
+    .button-md:first-child{
+        font-size: 1.5em;
+        padding: 1em 2em;
+        background-color: #00ce52;
+    }
+
+    p>span{
+        font-weight: bold;
+        color: black;
+        white-space: normal
+    }
+
+    .content-md {
+        text-align: center;
+    }
+
+    .item-md{
+        background-color: #bdbdbd;
+    }
+
+    .item-md:nth-child(odd){
+        background-color: #bdbdbd3a;
+    }
+
+    .item-md p{
+        font-size: 1.3em;
+    }
+
+    .label-md {
+        text-align: center;
+    }
+
+}

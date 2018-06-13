@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Info Restaurante</ion-title>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <h3>Información</h3>
+        <ion-item *ngFor="let item of restaurantService.inforestaurante">
+          <ion-col>
+            Nombre: {{item.nombre}}
+            <p>
+              <br>
+              Descripción: {{item.descripcion}}
+              <br>
+              Horario: {{item.horario}}
+              <br>
+              Dirección: {{item.direccion}}
+              <br>
+              <button ion-button (click)="borrar_restaurante(item.idRestaurante)">Borrar Restaurante</button>
+            </p>
+          </ion-col>
+        </ion-item>
+      
+        
+        <h3>Comentarios</h3>
+        <ion-item *ngFor="let item2 of restaurantService.comentariosrestaurante">
+            <ion-col>
+              {{item2.nombre}} - {{ item2.fecha | date : format : timezone}}
+              <p>
+                <br>
+                {{item2.contenido}}
+              </p>
+            </ion-col>
+          </ion-item>
+      </ion-grid>
+
+</ion-content>

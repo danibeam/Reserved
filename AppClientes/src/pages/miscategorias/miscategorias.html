@@ -1,0 +1,22 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Mis categorias</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+      <ion-item *ngFor="let item of restaurantService.allcategorias"  (click)="mis_productos(item.idCategoria)">
+        <ion-col>
+        {{item.nombre}}
+        </ion-col>
+         <ion-buttons right>
+        <button>></button>
+      </ion-buttons>
+      </ion-item>
+    </ion-grid>
+
+</ion-content>

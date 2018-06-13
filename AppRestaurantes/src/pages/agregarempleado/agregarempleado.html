@@ -1,0 +1,36 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agregar Empleado</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="add_empleado()">
+        <ion-item>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="empleado.nick" name="name" required></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="empleado.password" name="password" required></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label>Tipo</ion-label>
+          <ion-select [(ngModel)]="empleado.tipoempleado" [ngModelOptions]="{standalone: true}">
+              <ion-option value="camarero">Camarero</ion-option>
+              <ion-option value="cocinero">Cocinero</ion-option>
+          </ion-select>
+        </ion-item>
+        <br>
+
+        <button ion-button [disabled]="empleado.nick.length<3 || empleado.password.length<5" type="submit" block>Agregar</button>
+      </form>
+      <br>
+
+</ion-content>

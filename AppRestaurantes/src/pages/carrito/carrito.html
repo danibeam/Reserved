@@ -1,0 +1,36 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
+    <ion-title>Pedido</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <h3 id ="precio">Precio total:</h3>
+        <h5 id ="precio">{{pedidoService.suma}}€</h5>
+      </ion-item>
+  <ion-item *ngFor="let item of pedidoService.plato; let i = index;">
+      <ion-thumbnail item-left>
+          <img width="80" height="80" src="api/{{restaurantService.session.idRestaurante}}/{{item.nombre}}/imageproducto">
+      </ion-thumbnail>
+      <h2>{{item.nombre}}</h2>
+      <br>
+      <p>
+        <b>Precio:</b>{{item.precio}}€
+      </p>
+    <button ion-button item-right
+            (click)="pedidoService.eliminarplato(i)"><ion-icon name="trash"></ion-icon></button>
+  </ion-item>
+  <button ion-button (click)="anyadirproductopedido()">Pedir</button>
+</ion-content>

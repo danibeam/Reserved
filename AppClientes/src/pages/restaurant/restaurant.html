@@ -1,0 +1,88 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Información</ion-title>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <div id="foto" *ngFor="let item of restaurantService.inforestaurante">
+         <img id="general"  src="api/{{item.idRestaurante}}/imageprincipal">
+        </div>
+    
+       <ion-item *ngFor="let item of restaurantService.inforestaurante">
+          <ion-col>
+            <h4> {{item.nombre}}</h4>
+            <p><button ion-button outline (click)="ver_carta()">Ver Carta</button>
+            <button ion-button (click)="reservar()">Reservar</button></p>
+            <br>
+            <p>
+               {{item.descripcion}}.
+              <br>
+              <br>
+              <b>Horario:</b> {{item.horario}}.
+              <br>
+              <b>Dirección:</b> {{item.direccion}}.
+              <br>
+              <ion-row>
+                <b>Valoración: </b>
+                <ng-template ngFor let-item [ngForOf]="createRange4(this.restaurantService.valoracionmedia)" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                    <ion-icon  md="md-star"></ion-icon>
+                </ng-template>
+                <ng-template ngFor let-item [ngForOf]="createRange6()" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                    <ion-icon md="md-star-half"></ion-icon>
+                </ng-template>
+                <ng-template ngFor let-item [ngForOf]="createRange5(this.restaurantService.valoracionmedia)" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                    <ion-icon  md="md-star-outline"></ion-icon>
+                </ng-template>
+              </ion-row>
+            </p>
+          </ion-col>
+            <div id="fotos">
+            <ion-thumbnail item-left tappable (click)="openImageprincipal(item.idRestaurante)">
+              <ion-img src="api/{{item.idRestaurante}}/imageprincipal"></ion-img>
+            </ion-thumbnail>
+            <ion-thumbnail item-left tappable (click)="openImagesec1(item.idRestaurante)">
+              <ion-img src="api/{{item.idRestaurante}}/imagesec1"></ion-img>
+            </ion-thumbnail>
+            <ion-thumbnail item-left tappable (click)="openImagesec2(item.idRestaurante)">
+              <ion-img src="api/{{item.idRestaurante}}/imagesec2"></ion-img>
+            </ion-thumbnail>
+            <ion-thumbnail item-left tappable (click)="openImagesec3(item.idRestaurante)">
+              <ion-img src="api/{{item.idRestaurante}}/imagesec3"></ion-img>
+            </ion-thumbnail>
+          </div>
+        </ion-item>
+        <div id="map"></div>
+        <p class="motorgrafico">
+          <button ion-button (click)="openLink()">Plato estrella</button>
+        </p>
+        <h3>Comentarios</h3>
+        <ion-item *ngFor="let item2 of restaurantService.comentariosrestaurante">
+            <ion-row>
+              <span>{{item2.nombre}} - {{ item2.fecha | date : format : timezone}}</span>
+              <ng-template ngFor let-item [ngForOf]="createRange(item2.valoracion)" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                  <ion-icon  md="md-star"></ion-icon>
+              </ng-template>
+              <ng-template ngFor let-item [ngForOf]="createRange2(item2.valoracion)" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                  <ion-icon  md="md-star-outline"></ion-icon>
+              </ng-template>
+            </ion-row>
+              <ion-col>
+                <p>{{item2.contenido}}</p>
+            </ion-col>
+            
+          </ion-item>
+          <button ion-button (click)="comentar()">Comentar</button>
+      </ion-grid>
+
+</ion-content>

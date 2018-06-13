@@ -1,0 +1,62 @@
+page-restaurante {
+    .item-md{
+        background-color: transparent;
+    }
+
+    .item-md h2{
+        
+        font-size: 1.8em;
+        color:#76323F;
+    }
+
+    .label-md{
+        white-space: normal;
+    }
+
+    .button-default-md{
+        background-color:#76323F;
+    }
+    ion-thumbnail>img{
+        width: 100%!important;
+        height: 200px!important;
+        border:solid 1px;
+    }
+
+    .botonesrestaurante{
+        text-align: center;
+    }
+    .fab-md{
+        margin-left: 2em;
+        margin-top:2em;
+    }
+    p{   
+        font-size: 0.95em!important;
+    }
+    #container1{
+        background-color:#76323F;
+        width: 40%;
+        font-size: 1.15em;
+        margin-bottom: 2em;
+        padding: 1.2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+  .botonesrestaurante{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      color:white;
+  }
+  .icon-md{
+      font-size: 2em;
+      color:white;
+  }
+  .scroll-content{
+      margin-top: 40px!important;
+  }
+  .col{
+      font-size: 1.1em;
+  }
+}

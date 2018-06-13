@@ -1,0 +1,24 @@
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Carta</ion-title>
+  
+      <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+      <ion-grid>
+          <button ion-button (click)="restaurante()" block>Listado restaurantes</button>
+            <ion-item *ngFor="let item of restaurantService.productoscategoria" (click)="presentLoadingCustom(item.idProducto)"> 
+              <ion-thumbnail item-left>
+              <img width="80" height="80" src="api/{{restaurantService.restauranteactual}}/{{item.nombre}}/imageproducto">
+            </ion-thumbnail>
+            <p>{{item.nombre}}
+                <b>{{item.precio}}€</b> </p>
+          </ion-item>
+      </ion-grid>
+  </ion-content>

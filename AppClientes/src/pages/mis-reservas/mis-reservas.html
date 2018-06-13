@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Reservas pendientes</ion-title>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+ 
+</ion-header>
+<ion-content padding>
+    <ion-grid>
+          <div text-center id="no"*ngIf="userService.reservafutura == 0">
+              <p>No tiene reservas pendientes.</p>
+              <ion-icon id="size" name="card"></ion-icon>
+              <p id="enlance" (click)="restaurante()">¡Reserva ya!</p>
+          </div>
+        <ion-item *ngFor="let item of userService.reservafutura">
+          <ion-col>
+            <h4>{{item.nombre}}</h4>
+            <p>
+              <br>
+              <b>Dia:</b> {{ item.dia | date : format : timezone}}
+              <br>
+              <b>Hora:</b> {{item.hora}}
+              <br>
+              <b>Comensales:</b> {{item.comensales}}
+            </p>
+            <button ion-button (click)="eliminar_reserva(item.idReserva)">Eliminar</button>
+            <button ion-button (click)="modificar_reserva(item.idReserva)">Modificar reserva</button>
+          </ion-col>
+        </ion-item>
+      </ion-grid>
+
+</ion-content>

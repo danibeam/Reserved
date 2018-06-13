@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+
+      <ion-title>
+        Registro
+      </ion-title>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <form (ngSubmit)="add_user()">
+    <ion-item>
+      <ion-label floating>Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="user.nick" name="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Confirmar Password</ion-label>
+      <ion-input type="password" [(ngModel)]="pass.confirmarpassword" name="password2" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input  type="email" [(ngModel)]="user.email" name="email" required></ion-input>
+    </ion-item>
+    <button ion-button [disabled]="user.nick.length<4 || user.password.length<5 || user.email.length<10" type="submit" block>Regístrate</button>
+  </form>
+  <br>
+  
+  
+</ion-content>

@@ -1,0 +1,39 @@
+page-productosdepedido {
+
+    .grid>div{
+        font-weight: bold;
+        font-size: 1.3em;
+        text-align: center;
+        padding: 0.5em 0em;
+    }
+    
+    .button-md:last-child{
+        margin: 2.5rem 0.2rem;
+    }
+
+    .item-md{
+        background-color: transparent;
+        text-align: center;
+        //border-bottom: 2px solid black;
+    }
+
+    .item-md:last-child{
+        border-bottom: 0px !important;
+    }
+
+    .producto{
+        color:black;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    .row{
+        padding: 1.0em 0em;
+    }
+
+    .row .button-md{
+        margin:0px;
+        position: absolute;
+        right: 3px;
+    }
+}

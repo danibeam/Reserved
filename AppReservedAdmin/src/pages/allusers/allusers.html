@@ -1,0 +1,44 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Usuarios</ion-title>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <form (ngSubmit)="find_usuario()">
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.nombre" name="nombre" required></ion-input>
+      </ion-item>
+      <br>
+      <button ion-button [disabled]="usuario.nombre.length<1" type="submit" block>Buscar</button>
+    </form>
+    <h2>Todos los usuarios</h2>
+    <ion-item *ngFor="let item of usersService.users">
+      <ion-col>
+        {{item.nick}}
+       <p>
+         <br>
+         Password: {{item.password}}
+          <br>
+        <button ion-button (click)="borrar_usuario(item.idUsuario)">Borrar Usuario</button>
+       </p>
+      </ion-col>
+    </ion-item>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="siguiente_pag($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

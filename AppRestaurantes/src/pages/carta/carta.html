@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Carta Restaurante</ion-title>
+
+    <ion-buttons end>
+      <button right ion-button icon-only
+      (click)="verpedido()">
+      <ion-icon name="restaurant"></ion-icon>
+      <ion-badge color="danger">{{pedidoService.plato.length}}</ion-badge>
+</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+      <button ion-button (click)="volver_pedidos()">Ver pedidos</button>
+      <br>
+      <h3>Productos</h3>
+      <ion-item *ngFor="let item of restaurantService.productoscategoria">
+          <ion-thumbnail item-left>
+              <img width="80" height="80" src="api/{{restaurantService.session.idRestaurante}}/{{item.nombre}}/imageproducto">
+            </ion-thumbnail>
+          <h4>{{item.nombre}}</h4>
+          <p>
+            <br>
+            <b>Precio:</b> {{item.precio}} €
+          </p>
+          <p>
+            <br>
+            <button ion-button block icon-left
+            (click)="pedidoService.agregarpedido(item)">
+      <ion-icon name ="restaurant"></ion-icon>
+      Agregar al pedido
+    </button>
+          </p>
+      </ion-item>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,81 @@
+<ion-header>
+
+  <ion-navbar>
+
+      <ion-title>
+        Registro Restaurante
+      </ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <form (ngSubmit)="add_restaurant()">
+    <ion-item>
+      <ion-label floating>Nombre Restaurante</ion-label>
+      <ion-input type="text" [(ngModel)]="restaurant.nombre" name="name" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="restaurant.password" name="password" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Confirmar Password</ion-label>
+      <ion-input type="password" [(ngModel)]="pass.confirmarpassword" name="password2" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="restaurant.email" name="email" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Horario</ion-label>
+      <ion-input type="text" [(ngModel)]="restaurant.horario" name="horario" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Descripción</ion-label>
+      <ion-input type="text" [(ngModel)]="restaurant.descripcion" name="descripcion" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label floating>Dirección</ion-label>
+      <ion-input type="text" [(ngModel)]="restaurant.direccion" name="direccion" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+    <ion-label floating>Teléfono</ion-label>
+    <ion-input type="number" [(ngModel)]="restaurant.telefono" name="telefono" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+    <ion-label floating>Ciudad</ion-label>
+    <ion-input type="text" [(ngModel)]="restaurant.ciudad" name="ciudad" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+    <ion-label floating>Aforo</ion-label>
+    <ion-input type="number" [(ngModel)]="restaurant.aforo" name="aforo" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+    <ion-label floating>Tipo de Comida</ion-label>
+    <ion-input type="text" [(ngModel)]="restaurant.tipoComida" name="horario" required></ion-input>
+    </ion-item>
+    <br>
+    <ion-row>
+      <ion-label>Coordenadas</ion-label> <button type="button" name="coordenadas"  (click)="openMap()">Ver Mapa</button>
+    </ion-row>
+    <br>
+    <button ion-button [disabled]="restaurant.password.length<5 || restaurant.email.length<10" type="submit" block>Regístrate</button>
+  </form>
+  <br>
+  
+  
+</ion-content>

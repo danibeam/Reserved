@@ -1,0 +1,29 @@
+page-cartarestaurante {
+    .item-md{
+        background-color:transparent;
+        border-bottom: solid 1px;
+        border-bottom-color: bisque;
+    }
+    .button-md{
+        background-color:#76323F;
+        margin-top: 1em;
+        font-size: 0.9em;
+    }
+    h4{
+        color:#76323F;
+        font-size: 1.1em!important;
+    }
+    img{
+        border:solid 1px;
+    }
+    #modificar{
+        background-color: rgb(18, 137, 192);
+    }
+    #eliminar{
+        background-color: rgb(206, 55, 55);
+    }
+    .label-md{
+        white-space: normal;
+    }
+
+}

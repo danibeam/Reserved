@@ -1,0 +1,56 @@
+page-empleado {
+
+    .scroll-content {
+         padding: 0px!important;
+         margin-top: 6em!important; 
+    }
+
+    h2{
+        font-size: 3.0rem;
+        padding: 1em 0em;
+        text-decoration: underline;
+    }
+
+    .scroll-content>.button-md:first-child{
+        font-size: 1.5em;
+        padding: 1em 2em;
+        background-color: #00ce52;
+    }
+
+    .row{
+        
+    }
+
+    p>span{
+        font-weight: bold;
+        color: black;
+        margin-left: 10px;
+    }
+
+    .content-md {
+        text-align: center;
+    }
+
+    .item-md{
+        background-color: #bdbdbd;
+    }
+
+    .item-md:nth-child(odd){
+        background-color: #bdbdbd3a;
+    }
+
+    .item-md p{
+        font-size: 1.3em;
+    }
+
+    .item-md button{
+        margin: 1em 0em;
+    }
+
+    .label-md {
+        text-align: center;
+    }
+    .button-md{
+        background-color:#76323F;
+    }
+}

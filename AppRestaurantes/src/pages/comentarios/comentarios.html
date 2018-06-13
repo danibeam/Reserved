@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Comentarios</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="find_comment()">
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="comentario.contenido" name="contenido" required></ion-input>
+      </ion-item>
+      <br>
+      <button ion-button id="buscar" [disabled]="comentario.contenido.length<1" type="submit" block>Buscar</button>
+    </form>
+    <h2>Todos los comentarios</h2>
+    <ion-item *ngFor="let item of restaurantService.comentariosrestaurante">
+        <ion-row>
+            <span>{{item.nombre}} - {{ item.fecha | date : format : timezone}}</span>
+            <ng-template ngFor let-item [ngForOf]="createRange(item.valoracion)" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                <ion-icon  md="md-star"></ion-icon>
+            </ng-template>
+            <ng-template ngFor let-item [ngForOf]="createRange2(item.valoracion)" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                <ion-icon  md="md-star-outline"></ion-icon>
+            </ng-template>
+          </ion-row>
+          <br>
+        <ion-col id="contenido">
+          {{item.contenido}} 
+      </ion-col>
+      <br>
+      <br>
+      <button [disabled]="item.denunciado==='si' || item.denunciado==='validado' " ion-button (click)="denunciar_comentario(item.idComentario,item.idUsuario)">Denunciar</button>
+      <br>
+      <ion-col [hidden]="item.denunciado==='no' || item.denunciado==='si' ">
+        <h4>
+          AVISO: Comentario revisado y permitido.
+        </h4>
+      </ion-col>
+    </ion-item>
+
+</ion-content>

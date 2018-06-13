@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title> Mis categorias</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+      <button ion-button (click)="mostrar_formulario()">Crear Categoria</button>
+      <form *ngIf="buttonClicked" (ngSubmit)="crear_categoria()">
+          <ion-item>
+            <ion-label>Nombre</ion-label>
+            <ion-input type="text" [(ngModel)]="categoria.nombre" name="name" required></ion-input>
+          </ion-item>
+          <br>
+          <button ion-button [disabled]="categoria.nombre.length<2" type="submit" block>Crear</button>
+        </form>
+        <br>
+    <button ion-button (click)="agregar_producto()" >Agregar Producto</button>
+    <br>
+    <ion-item *ngFor="let item of restaurantService.allcategorias" (click)="mis_productos(item.idCategoria)">
+      <ion-col>
+      {{item.nombre}}
+      </ion-col>
+      <ion-buttons right>
+        <button id="button">></button>
+      </ion-buttons>
+    </ion-item>
+  </ion-grid>
+</ion-content>

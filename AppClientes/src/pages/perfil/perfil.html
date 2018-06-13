@@ -1,0 +1,34 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Mi Perfil</ion-title>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <ion-item *ngFor="let item of userService.infouser">
+          <ion-col>
+            <h4>{{item.nombre}}</h4>
+            <p>
+              <br>
+              <b>Nombre:</b> {{item.nombre}}
+              <br>
+              <b>email:</b> {{item.email}}
+            </p>
+            <br>
+            <button ion-button (click)="modificarperfil()">Modificar Perfil</button>
+            <button ion-button (click)="verhistorial()">Historial de reservas</button>
+          </ion-col>
+        </ion-item>
+      </ion-grid>
+</ion-content>

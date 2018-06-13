@@ -1,0 +1,35 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Denuncias</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-grid>
+      <ion-item *ngFor="let item of restaurantService.denuncias">
+        <ion-col>
+          <p>
+            Usuario: {{item.nick}}
+            <br>
+            Restaurante: {{item.nombre}}
+            <br>
+            Comentario: {{item.contenido}}
+            <br>
+            <button ion-button (click)="borrar_comentario(item.idComentario)">Borrar</button>
+            <button ion-button (click)="permitir_comentario(item.idComentario)">Permitir</button>
+          </p>
+        </ion-col>
+      </ion-item>
+    </ion-grid>
+
+</ion-content>

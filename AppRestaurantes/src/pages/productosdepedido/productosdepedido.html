@@ -1,0 +1,33 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Productos del pedido</ion-title>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <div>PIN: {{restaurantService.pin}}</div>
+        <button ion-button  color="danger" [disabled]="restaurantService.pin==null" (click)="borrar_pin()">Borrar PIN</button>
+        <br>
+        <button ion-button color="secondary" (click)="agregar_productopedido()" ><ion-icon md="md-restaurant"></ion-icon> Añadir Producto</button>
+        <ion-item *ngFor="let item of restaurantService.productosagrupados">
+          <ion-row>
+              <span class="producto">{{item.cantidad}} x {{item.nombre}}</span>
+              <button ion-button color="danger" [disabled]="item.TipoProducto=='Servido' || item.TipoProducto=='Preparando' || item.TipoProducto=='Preparado'" (click)="eliminar_productodepedido(item.idProductoDePedido,item.IdProducto)">Eliminar</button>
+          </ion-row>
+        </ion-item>
+        <button ion-button (click)="volver_pedidos()">Volver</button>
+      </ion-grid>
+
+</ion-content>

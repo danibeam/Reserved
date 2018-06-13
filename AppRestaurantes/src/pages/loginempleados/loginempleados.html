@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login Empleados</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <img  id ="logo" src="assets/imgs/LogoFinal.jpg" width="350" height="120">
+  <form (ngSubmit)="login_empleado()">
+      <ion-item>
+        <ion-label floating>Nick</ion-label>
+        <ion-input type="text" [(ngModel)]="empleado.nick" name="nick" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="empleado.password" name="password" required></ion-input>
+      </ion-item>
+      
+      <button ion-button [disabled]="empleado.nick.length<3 || empleado.password.length<3" type="submit" block>Login</button>
+    </form>
+
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Camarero</ion-title>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <button ion-button (click)="crear_pedido()">Nuevo Pedido</button>
+
+  <ion-grid>
+    <br>
+    <h2>Pedidos en Curso</h2>
+    <br>
+    <ion-item *ngFor="let item of restaurantService.pedidosencurso">
+      <ion-col>
+        <p>
+          Pedido numero {{item.idPedido}}    
+          <br>
+          Mesa: <span>{{item.mesa}}</span>
+          <br>
+          Cuenta Total: {{item.cuentaTotal}}
+        </p>
+        <button ion-button (click)="info_pedido(item.idPedido)">Ver</button>
+        <br>
+        <button ion-button color="danger" (click)="cerrar_pedido(item.idPedido)">Terminar Pedido</button>
+        <br>
+      </ion-col>
+    </ion-item>
+  </ion-grid>
+
+</ion-content>

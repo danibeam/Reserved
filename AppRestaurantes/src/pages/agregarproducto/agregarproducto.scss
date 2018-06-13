@@ -1,0 +1,23 @@
+page-agregarproducto {
+
+    .row>ion-item{
+        width:50%
+    }
+    .button-default-md{
+        background-color:#76323F;
+    }
+    .ng-dirty{
+        font-size: 1.1em;
+    }
+    #cargar{
+        font-size: 1.1em;
+        padding: 1em;
+    }
+    #imagen{
+        margin-left:2.5em;
+    }
+
+    .colimagen{
+        text-align: right;
+    }
+}

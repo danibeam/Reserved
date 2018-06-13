@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+      <ion-buttons start>
+        <button ion-button icon-only (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+      <ion-title>Subir Imagen</ion-title>
+    </ion-navbar>
+  </ion-header>
+   
+  <ion-content padding>
+    <img [src]="imageData" style="width: 100%">
+   
+    <button ion-button full icon-left (click)="saveImage()">
+            <ion-icon name="checkmark"></ion-icon>
+            Guardar y Subir
+    </button>
+  </ion-content>

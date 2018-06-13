@@ -1,0 +1,92 @@
+<ion-header>
+
+  <ion-navbar>
+
+      <ion-title >
+        Restaurantes
+      </ion-title>
+      <ion-buttons right>
+       <button ion-button (click)="mostrar_formulario()"> <ion-icon   name="search"></ion-icon></button>
+       <button ion-button (click)="mostrar_formulario2()"> <ion-icon   name="ios-funnel"></ion-icon></button>
+      </ion-buttons> 
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-grid>
+      <button *ngIf="buttonClicked2" ion-button (click)="todos_restaurantes()"> Ver todos los restaurantes</button>
+      <form *ngIf="buttonClicked" (ngSubmit)="busquedaavanzada()">
+          <ion-item>
+            <ion-label floating>Nombre</ion-label>
+            <ion-input type="text" [(ngModel)]="busqueda.nombre" name="nombre" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Ciudad</ion-label>
+            <ion-input type="text" [(ngModel)]="busqueda.ciudad" name="ciudad" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Tipo de comida</ion-label>
+            <ion-input type="text" [(ngModel)]="busqueda.tipoComida" name="tipo" required></ion-input>
+          </ion-item>
+            <button [disabled]="busqueda.nombre.length<1 && busqueda.ciudad.length<1 && busqueda.tipoComida.length<1" ion-button type="submit" block>Buscar</button>
+        </form>
+        <br>
+        <ion-grid *ngIf="buttonClicked3" radio-group [(ngModel)]="this.restaurantService.filtro">
+          <h4>Filtrar resultados por:</h4>
+          <ion-item>
+            <ion-label>Proximidad</ion-label>
+            <ion-radio checked value="proximidad"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Valoración</ion-label>
+            <ion-radio value="valoracion"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Novedades</ion-label>
+            <ion-radio value="novedades"></ion-radio>
+          </ion-item>
+          <button ion-button  (click)="filtrar_resultados()" block>Filtrar</button>
+        </ion-grid>
+        <br>
+        <ion-list>
+        <ion-item *ngFor="let item of restaurantService.restaurantes" (click)="presentLoadingCustom(item.idRestaurante)">
+            <ion-thumbnail item-left>
+                <ion-img width="150" height="150" src="api/{{item.idRestaurante}}/imageprincipal"></ion-img>
+            </ion-thumbnail>
+           <h2>{{item.nombre}}</h2>
+           <br>
+            <p>
+              {{item.tipoComida}}
+            </p>
+            <p>
+             {{item.direccion}}
+            </p>
+            <p>
+              <ion-row>
+                <ng-template ngFor let-item [ngForOf]="createRange(item.media)" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                    <ion-icon  md="md-star"></ion-icon>
+                </ng-template>
+                <ng-template ngFor let-item [ngForOf]="createRange3()" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                    <ion-icon md="md-star-half"></ion-icon>
+                </ng-template>
+
+                <ng-template ngFor let-item [ngForOf]="createRange2(item.media)" let-currentElementIndex="(index + 1)" [ngForTrackBy]="trackByFn" item-right>
+                    <ion-icon  md="md-star-outline"></ion-icon>
+                </ng-template>
+                &nbsp;de {{item.comentarios}} opiniones </ion-row>
+            </p>
+            <p>
+              A <span class="distancia">{{item.distancia}}KM</span> de tí.
+            </p>
+        </ion-item>
+      </ion-list>
+      </ion-grid>
+  </ion-content>

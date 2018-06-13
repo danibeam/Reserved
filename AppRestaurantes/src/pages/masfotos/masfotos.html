@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Fotos</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+  
+  
+<ion-content padding>
+  <ion-grid>
+    <ion-item tappable (click)="openImage1()">
+      <img width="80" height="80" [src]="urlfotosec1">
+    </ion-item>
+    <button ion-button (click)="presentActionSheet1()">Subir foto 1</button>
+    <br>
+    <ion-item tappable (click)="openImage2()">
+      <img width="80" height="80" [src]="urlfotosec2">
+    </ion-item>
+    <button ion-button (click)="presentActionSheet2()">Subir foto 2</button>
+    <br>
+    <ion-item tappable (click)="openImage3()">
+      <img width="80" height="80" [src]="urlfotosec3">
+    </ion-item>
+    <button ion-button (click)="presentActionSheet3()">Subir foto 3</button>
+  </ion-grid>
+
+</ion-content>

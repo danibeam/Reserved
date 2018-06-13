@@ -1,0 +1,24 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Reservas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item *ngFor="let item of restaurantService.reservas">
+        <ion-col>
+          Usuario: {{item.nick}}
+          <p>
+            <br>
+            Hora: {{item.hora}}
+            <br>
+            Comensales: {{item.comensales}}
+          </p>
+        </ion-col>
+      </ion-item>
+
+</ion-content>

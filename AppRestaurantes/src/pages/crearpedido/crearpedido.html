@@ -1,0 +1,33 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nuevo Pedido</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="crear_pedido()">
+        <ion-item>
+          <ion-label floating>Mesa</ion-label>
+          <ion-input type="number" [(ngModel)]="pedido.mesa" name="mesa" required></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label floating>Reservas</ion-label>
+          <ion-select [(ngModel)]="pedido.reservap" [ngModelOptions]="{standalone: true}" (ngModelChange)="select_reserva($event)">
+            <ion-option *ngFor="let item of restaurantService.reservastoday" [value]="item.idReserva">{{item.nick}} - {{item.hora}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <ion-item *ngIf="buttonClicked">
+          <ion-label floating>Comensales</ion-label>
+          <ion-input type="number" [(ngModel)]="reserva.comensales" name="comensales" ></ion-input>
+        </ion-item>
+        <br>
+        <button ion-button [disabled]="pedido.mesa.length<1" type="submit" block>Crear</button>
+      </form>
+
+</ion-content>

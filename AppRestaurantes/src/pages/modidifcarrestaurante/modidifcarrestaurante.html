@@ -1,0 +1,80 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Modificar</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="modify_restaurant()">
+      <ion-item>
+        <ion-label >Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="restaurant.nombre" name="name" placeholder={{restaurantService.inforestaurant[0].nombre}} ></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="restaurant.password" name="password" ></ion-input>
+      </ion-item>
+        <ion-item>
+          <ion-label floating>Confirmar Password</ion-label>
+          <ion-input type="password" [(ngModel)]="pass.confirmarpassword" name="password2" required></ion-input>
+        </ion-item>
+      <br>
+      <ion-item>
+        <ion-label >Email</ion-label>
+        <ion-input type="email" [(ngModel)]="restaurant.email" name="email" placeholder={{restaurantService.inforestaurant[0].email}} ></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label>Horario</ion-label>
+        <ion-input type="text" [(ngModel)]="restaurant.horario" name="horario" placeholder={{restaurantService.inforestaurant[0].horario}}></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label>Descripción</ion-label>
+        <ion-input type="text" [(ngModel)]="restaurant.descripcion" name="descripcion" placeholder={{restaurantService.inforestaurant[0].descripcion}}></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label>Dirección</ion-label>
+        <ion-input type="text" [(ngModel)]="restaurant.direccion" name="direccion" placeholder={{restaurantService.inforestaurant[0].direccion}}></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+      <ion-label>Teléfono</ion-label>
+      <ion-input type="number" [(ngModel)]="restaurant.telefono" name="telefono" placeholder={{restaurantService.inforestaurant[0].telefono}}></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+      <ion-label>Ciudad</ion-label>
+      <ion-input type="text" [(ngModel)]="restaurant.ciudad" name="ciudad" placeholder={{restaurantService.inforestaurant[0].ciudad}}></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+      <ion-label>Aforo</ion-label>
+      <ion-input type="number" [(ngModel)]="restaurant.aforo" name="aforo" placeholder={{restaurantService.inforestaurant[0].aforo}}></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+      <ion-label>Tipo de Comida</ion-label>
+      <ion-input type="text" [(ngModel)]="restaurant.tipoComida" name="tipoComida" placeholder={{restaurantService.inforestaurant[0].tipoComida}}></ion-input>
+      </ion-item>
+      <br>
+      <ion-row>
+      <ion-label>Coordenadas</ion-label> <button type="button" name="coordenadas"  (click)="openMap()">Ver Mapa</button>
+      </ion-row>
+      <br>
+      <button ion-button type="submit" block>Modificar</button>
+    </form>
+
+
+</ion-content>

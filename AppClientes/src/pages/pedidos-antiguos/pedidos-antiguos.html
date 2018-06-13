@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Mi pedido</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+<ion-grid>
+    <ion-item>
+        <h4 id="precio">Precio total:</h4>
+        <br>
+       <h5 id="precio">{{restaurantService.suma}}€</h5> 
+      </ion-item>
+      <hr>
+  <ion-item *ngFor="let item of restaurantService.productospedidoagrupados">
+      <ion-thumbnail item-left>
+          <img width="80" height="80" src="api/{{restaurantService.restauranteactual}}/{{item.nombre}}/imageproducto">
+      </ion-thumbnail>
+      <h2>{{item.nombre}} &nbsp;x{{item.cantidad}}</h2>
+        <p>
+          <b>Precio:</b> {{item.precio}}€/ud
+          </p>
+  </ion-item>
+</ion-grid>
+</ion-content>

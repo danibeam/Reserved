@@ -1,0 +1,52 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ver pedido</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-item>
+      <h4 id="precio">Precio total:</h4>
+      <br>
+     <h5 id="precio">{{restaurantService.suma}}€</h5> 
+    </ion-item>
+    <br>
+    <p class="botones"><button id="azul" ion-button (click)="anayadirplato()">Agregar platos</button> 
+    <button id="rojo" ion-button outline (click)="pedirCuenta()">Pedir la cuenta</button></p>
+    <br>
+    
+    <ion-item *ngFor="let item of restaurantService.productospedidoagrupados">
+        <ion-thumbnail item-left>
+            <img width="80" height="80" src="api/{{restaurantService.restauranteactual}}/{{item.nombre}}/imageproducto">
+          </ion-thumbnail>
+      <ion-col>
+        <h2>{{item.nombre}} &nbsp;x{{item.cantidad}}</h2>
+        <br>
+          <p>
+              <b>Precio:</b> {{item.precio}}€/ud
+            </p>
+            <p>
+                <b>Estado:</b> {{item.TipoProducto}}
+              </p>
+          </ion-col>
+         <button id="basura" ion-button item-right *ngIf="item.TipoProducto=='Preparar'"
+         (click)="eliminarplato(item.idProductoDePedido,item.IdProducto)">
+         <ion-icon name="trash"></ion-icon></button>
+      
+    </ion-item>
+  </ion-grid>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+</ion-content>

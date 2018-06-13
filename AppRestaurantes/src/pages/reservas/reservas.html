@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Reservas</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form (ngSubmit)="see_reservas()">
+    <ion-item>
+      <ion-label>Día</ion-label>
+      <ion-datetime [ngModelOptions]="{standalone: true}" displayFormat="DD MMM YYYY" [(ngModel)]="startDate"></ion-datetime>
+    </ion-item>
+    <br>
+    <button ion-button id="buscar" type="submit" block>Buscar</button>
+  </form>
+
+  <ion-item *ngFor="let item of restaurantService.aforo">
+    <ion-col>
+      Turno: {{item.turno}} / Aforo Disponible: {{item.aforo}}
+      <p>
+        <br>
+          <button ion-button (click)="mostrar_reservas(item.dia,item.turno)">Ver Reservas este turno</button>
+        <br>
+      </p>
+    </ion-col>
+  </ion-item>
+
+</ion-content>

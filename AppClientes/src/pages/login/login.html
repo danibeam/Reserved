@@ -1,0 +1,23 @@
+
+<ion-content padding>  
+<img  id ="logo" src="assets/imgs/LogoFinal.jpg" width="350" height="120">
+<div>
+  <form (ngSubmit)="login_user()">
+    <ion-item>
+      <ion-label floating>Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="user.nick" name="name" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+    </ion-item>
+    <button ion-button [disabled]="user.nick.length<3 || user.password.length<3" type="submit" block>Login</button>
+  </form>
+
+  <ion-grid>
+   <p>
+    ¿No tienes cuenta? <a (click)="showRegistroPage()">Regístrate</a>
+   </p>  
+  </ion-grid>
+</div>
+</ion-content>

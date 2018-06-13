@@ -1,0 +1,44 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Iniciar pedido</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <form (ngSubmit)= "comprobar_pin()">
+            <h3>¿Tienes codigo de reserva?</h3>
+            <ion-item>
+              <ion-label>Pin</ion-label>
+              <ion-input type="number" [(ngModel)]="pin.pin" name="pin" required></ion-input>
+            </ion-item>
+          <button ion-button  [disabled]="pin.pin.length<1" type="submit" block>Comprobar</button>
+          </form>
+          <br>
+          <br>
+      <h3>Reserva actual</h3>
+       <ion-item *ngFor="let item of userService.reservaconfirmada">
+      <ion-col>
+        <h4><b>{{item.nombre}}</b></h4>
+        <p>
+          <br>
+          <b>Hora:</b> {{item.hora}}
+          <br>
+          <b>Comensales:</b> {{item.comensales}}
+        </p>
+      </ion-col>
+      <br>
+      <button ion-button  id="actual" (click)="iniciarpedido()">Iniciar Pedido</button>
+      <button ion-button  id="actual" (click)="verpedido(item.idReserva)">Ver pedido</button>
+    </ion-item>
+  </ion-grid>
+</ion-content>

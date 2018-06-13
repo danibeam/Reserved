@@ -1,0 +1,131 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agregar Producto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="add_producto()">
+        <ion-item>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="producto.nombre" name="name" required></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label floating>Precio</ion-label>
+          <ion-input type="number" [(ngModel)]="producto.precio" name="precio" required></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label floating>Descripción del producto</ion-label>
+          <ion-textarea [(ngModel)]="producto.informacion" name="informacion" required></ion-textarea>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label>Tipo</ion-label>
+          <ion-select [(ngModel)]="producto.tipo" [ngModelOptions]="{standalone: true}">
+              <ion-option value="preparar">Preparar</ion-option>
+              <ion-option value="preparado">Preparado</ion-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <ion-item>
+          <ion-label>Categoría</ion-label>
+          <ion-select [(ngModel)]="producto.categoria" [ngModelOptions]="{standalone: true}">
+              <ion-option *ngFor="let item of restaurantService.categoriasrestaurante" [value]="item.idCategoria">{{item.nombre}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <ion-row>
+          <ion-col>
+            <ion-label>Imagen: </ion-label>
+            <div>
+              <button id="cargar" type="button" (click)="presentActionSheet()">Cargar imagen</button>
+            </div>
+          </ion-col>
+          <ion-col class="colimagen">
+            <img id="imagen" [src]="imageData" style="width:100px; height: 100px;">
+          </ion-col>
+        </ion-row>
+        <br>
+        <ion-row>
+          <ion-item>
+            <ion-label>Gluten</ion-label>
+            <ion-checkbox [(ngModel)]="producto.gluten" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Crustaceos</ion-label>
+            <ion-checkbox [(ngModel)]="producto.crustaceos" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label>Huevos</ion-label>
+            <ion-checkbox [(ngModel)]="producto.huevos" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Pescado</ion-label>
+            <ion-checkbox [(ngModel)]="producto.pescado" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label>Cacahuetes</ion-label>
+            <ion-checkbox [(ngModel)]="producto.cacahuetes" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Soja</ion-label>
+            <ion-checkbox [(ngModel)]="producto.soja" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label>Lacteos</ion-label>
+            <ion-checkbox [(ngModel)]="producto.lacteos" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Cascaras frutos</ion-label>
+            <ion-checkbox [(ngModel)]="producto.frutos_cascara" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label>Apio</ion-label>
+            <ion-checkbox [(ngModel)]="producto.apio" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Mostaza</ion-label>
+            <ion-checkbox [(ngModel)]="producto.mostaza" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label>Sesamo</ion-label>
+            <ion-checkbox [(ngModel)]="producto.sesamo" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Dioxido de azufre</ion-label>
+            <ion-checkbox [(ngModel)]="producto.dioxido_azufre" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label>Moluscos</ion-label>
+            <ion-checkbox [(ngModel)]="producto.moluscos" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Altramuces</ion-label>
+            <ion-checkbox [(ngModel)]="producto.altramuces" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+        </ion-row>
+        
+        <br>
+        <button ion-button [disabled]="producto.nombre.length<3" type="submit" block>Agregar Producto</button>
+      </form>
+      <br>
+
+</ion-content>

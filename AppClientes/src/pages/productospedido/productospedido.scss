@@ -1,0 +1,58 @@
+page-productospedido {
+    .item-md{
+        background-color:transparent;
+    }
+    .button-default-md{
+        background-color:#76323F;
+        width: 45%;
+    }
+    .scroll-content{
+        margin-top: 35px!important;
+    }
+    h4{
+        color:#76323F;
+        //text-align:center;
+        font-size: 1.1em!important;
+    }
+
+    .icon-md{
+        font-size: 2em;
+    }
+    ion-label{
+        white-space: normal
+    }
+    #basura{
+        height: 30px!important;
+        width: 40px!important;
+        color: #76323F;
+        background-color:transparent; 
+    }
+    h2{
+        font-size: 3.0rem;
+        color:#76323F;
+    }
+    #precio{
+        float: right!important;
+    }
+    h5{
+        float: right!important;
+        margin-left:100%!important;
+        font-size: 1em!important;
+    }
+    h4{
+        color:#76323F;
+        //text-align:center;
+        font-size: 1.1em!important;
+    }
+    #azul{
+        background-color: #76323F!important;
+        
+    }
+    #rojo{
+        color:#76323F;
+        border-color:#76323F;
+    }
+    .botones{
+        text-align: center;
+    }
+}
